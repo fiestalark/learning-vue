@@ -1,16 +1,35 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <SignupForm v-if="showSignupForm" />
+  <ReactionTimer v-if="showReactionTimer" />
+  <button @click="toggleSignupForm">Show Signup Form</button>
+  <button @click="toggleReactionTimer">Show Reaction Timer</button>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SignupForm from './components/SignupForm.vue'
+import ReactionTimer from './components/ReactionTimer.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    SignupForm,
+    ReactionTimer
+  },
+  data() {
+      return {
+          showSignupForm: false,
+          showReactionTimer: false
+      }
+  },
+  methods: {
+    toggleSignupForm() {
+        this.showSignupForm = !this.showSignupForm
+    },
+    toggleReactionTimer() {
+      this.showReactionTimer = !this.showReactionTimer
+    }
   }
+
 }
 </script>
 
